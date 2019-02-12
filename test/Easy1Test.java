@@ -35,9 +35,9 @@ public class Easy1Test {
     @AfterClass
     public static void tearDownClass() {
         System.out.println("------------------------------------------------");
-        System.out.println("Total test: "+totalTest);
-        System.out.println("SUCCESS: "+successTest+"/"+totalTest);
-        System.out.println("FAILED: "+failedTest);
+        System.out.println("Total test: " + totalTest);
+        System.out.println("SUCCESS: " + successTest + "/" + totalTest);
+        System.out.println("FAILED: " + failedTest);
     }
 
     @Before
@@ -65,7 +65,7 @@ public class Easy1Test {
             failedTest++;
             throw e;
         }
-        System.out.println("\t\t\t[OK]");
+        System.out.println("\t\t[OK]");
         successTest++;
 
     }
@@ -85,23 +85,22 @@ public class Easy1Test {
             failedTest++;
             throw e;
         }
-        System.out.println("\t\t\t[OK]");
+        System.out.println("\t\t[OK]");
         successTest++;
         //fail("[testing somma][ERRORE] 3 + 5 != "+result);
 
     }
-    
-    
+
     @Test
     public void testCountBlock1() {
         System.out.print("[testing countblock][1]..");
         Easy1 instance = new Easy1();
         String text = "ciao,belli";
-        String separator =",";
-        int result = instance.countBlock(text,separator);
+        String separator = ",";
+        int result = instance.countBlock(text, separator);
         int expectedResult = 2;
         try {
-            assertEquals("[testing countblock][ERRORE] examining string= "+text+" and separator = '"+separator+"'", expectedResult, result);
+            assertEquals("[testing countblock][ERRORE] examining string= " + text + " and separator = '" + separator + "'", expectedResult, result);
         } catch (AssertionError e) {
             System.out.println("\t\t[FAIL]");
             failedTest++;
@@ -111,17 +110,17 @@ public class Easy1Test {
         successTest++;
 
     }
-    
+
     @Test
     public void testCountBlock2() {
         System.out.print("[testing countblock][2]..");
         Easy1 instance = new Easy1();
         String text = "paolo-mario-pedro-alifrizzi";
-        String separator ="-";
-        int result = instance.countBlock(text,separator);
+        String separator = "-";
+        int result = instance.countBlock(text, separator);
         int expectedResult = 4;
         try {
-            assertEquals("[testing countblock][ERRORE] examining string= "+text+" and separator = '"+separator+"'", expectedResult, result);
+            assertEquals("[testing countblock][ERRORE] examining string= " + text + " and separator = '" + separator + "'", expectedResult, result);
         } catch (AssertionError e) {
             System.out.println("\t\t[FAIL]");
             failedTest++;
@@ -131,17 +130,17 @@ public class Easy1Test {
         successTest++;
 
     }
-    
+
     @Test
     public void testCountBlock3() {
         System.out.print("[testing countblock][3]..");
         Easy1 instance = new Easy1();
         String text = "paolo-mario-pedro-alifrizzi";
-        String separator =",";
-        int result = instance.countBlock(text,separator);
+        String separator = ",";
+        int result = instance.countBlock(text, separator);
         int expectedResult = 1;
         try {
-            assertEquals("[testing countblock][ERRORE] examining string= "+text+" and separator = '"+separator+"'", expectedResult, result);
+            assertEquals("[testing countblock][ERRORE] examining string= " + text + " and separator = '" + separator + "'", expectedResult, result);
         } catch (AssertionError e) {
             System.out.println("\t\t[FAIL]");
             failedTest++;
@@ -151,17 +150,17 @@ public class Easy1Test {
         successTest++;
 
     }
-    
+
     @Test
     public void testCountBlock4() {
         System.out.print("[testing countblock][4]..");
         Easy1 instance = new Easy1();
         String text = "";
-        String separator =",";
-        int result = instance.countBlock(text,separator);
+        String separator = ",";
+        int result = instance.countBlock(text, separator);
         int expectedResult = 1;
         try {
-            assertEquals("[testing countblock][ERRORE] examining string= "+text+" and separator = '"+separator+"'", expectedResult, result);
+            assertEquals("[testing countblock][ERRORE] examining string= " + text + " and separator = '" + separator + "'", expectedResult, result);
         } catch (AssertionError e) {
             System.out.println("\t\t[FAIL]");
             failedTest++;
@@ -171,19 +170,24 @@ public class Easy1Test {
         successTest++;
 
     }
-    
+
     @Test
     public void testCountBlock5() {
         System.out.print("[testing countblock][5]..");
         Easy1 instance = new Easy1();
         String text = null;
-        String separator =",";
-        int result = instance.countBlock(text,separator);
-        int expectedResult = 0;
+        String separator = ",";
         try {
-            assertEquals("[testing countblock][ERRORE] examining string= "+text+" and separator = '"+separator+"'", expectedResult, result);
+            int result = instance.countBlock(text, separator);
+            int expectedResult = 0;
+
+            assertEquals("[testing countblock][ERRORE] examining string= " + text + " and separator = '" + separator + "'", expectedResult, result);
         } catch (AssertionError e) {
-            System.out.println("\t\t[FAIL]");
+            System.out.println("\t[FAIL]");
+            failedTest++;
+            throw e;
+        } catch (Exception e) {
+            System.out.println("\t[FAIL]");
             failedTest++;
             throw e;
         }
@@ -191,17 +195,17 @@ public class Easy1Test {
         successTest++;
 
     }
-    
+
     @Test
     public void testCountBlock6() {
         System.out.print("[testing countblock][6]..");
         Easy1 instance = new Easy1();
         String text = "ciao,bella-come stai, tutt'ok ?,,sisi,";
-        String separator =",";
-        int result = instance.countBlock(text,separator);
+        String separator = ",";
+        int result = instance.countBlock(text, separator);
         int expectedResult = 5;
         try {
-            assertEquals("[testing countblock][ERRORE] examining string= "+text+" and separator = '"+separator+"'", expectedResult, result);
+            assertEquals("[testing countblock][ERRORE] examining string= " + text + " and separator = '" + separator + "'", expectedResult, result);
         } catch (AssertionError e) {
             System.out.println("\t\t[FAIL]");
             failedTest++;
@@ -211,17 +215,17 @@ public class Easy1Test {
         successTest++;
 
     }
-    
+
     @Test
     public void testCountBlock7() {
         System.out.print("[testing countblock][7]..");
         Easy1 instance = new Easy1();
         String text = "uno,,,,due,,tre,,,";
-        String separator =",";
-        int result = instance.countBlock(text,separator);
+        String separator = ",";
+        int result = instance.countBlock(text, separator);
         int expectedResult = 7;
         try {
-            assertEquals("[testing countblock][ERRORE] examining string= "+text+" and separator = '"+separator+"'", expectedResult, result);
+            assertEquals("[testing countblock][ERRORE] examining string= " + text + " and separator = '" + separator + "'", expectedResult, result);
         } catch (AssertionError e) {
             System.out.println("\t\t[FAIL]");
             failedTest++;
@@ -231,17 +235,17 @@ public class Easy1Test {
         successTest++;
 
     }
-    
+
     @Test
     public void testCountBlock8() {
         System.out.print("[testing countblock][7]..");
         Easy1 instance = new Easy1();
         String text = ",,,,,,,,,,,";
-        String separator =",";
-        int result = instance.countBlock(text,separator);
+        String separator = ",";
+        int result = instance.countBlock(text, separator);
         int expectedResult = 0;
         try {
-            assertEquals("[testing countblock][ERRORE] examining string= "+text+" and separator = '"+separator+"'", expectedResult, result);
+            assertEquals("[testing countblock][ERRORE] examining string= " + text + " and separator = '" + separator + "'", expectedResult, result);
         } catch (AssertionError e) {
             System.out.println("\t\t[FAIL]");
             failedTest++;
@@ -251,8 +255,7 @@ public class Easy1Test {
         successTest++;
 
     }
-    
-    
+
     @Test
     public void testSumString() {
         System.out.print("[DEBUG][sumStrings]..");
@@ -262,13 +265,13 @@ public class Easy1Test {
         int result = instance.sumStrings(s1, s2);
         int expectedResult = 13;
         try {
-            assertEquals("[testing countblock][ERRORE] 10 + 3 != "+result, expectedResult, result);
+            assertEquals("[testing countblock][ERRORE] 10 + 3 != " + result, expectedResult, result);
         } catch (AssertionError e) {
             System.out.println("\t\t\t[FAIL]");
             failedTest++;
             throw e;
         }
-        System.out.println("\t\t\t[OK]");
+        System.out.println("\t\t[OK]");
         successTest++;
 
     }
