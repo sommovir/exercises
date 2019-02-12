@@ -44,6 +44,20 @@ public class Easy1 {
         return -1;
     }
     
+    /**
+     * FIND THE BUG
+     * This method should return the int result after converting and summing the inputs. 
+     * @param s1
+     * @param s2
+     * @return 
+     */
+    public int sumStrings(String s1, String s2){
+        int n1 = Integer.parseInt(s1);
+        int n2 = Integer.parseInt(s1);
+        
+        return n1+n2;
+    }
+    
     public static void main(String[] args) {
         System.out.println("test");
         String t = "mario,gino,,,,,,,,,,,,,";

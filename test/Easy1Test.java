@@ -251,5 +251,26 @@ public class Easy1Test {
         successTest++;
 
     }
+    
+    
+    @Test
+    public void testSumString() {
+        System.out.print("[DEBUG][sumStrings]..");
+        Easy1 instance = new Easy1();
+        String s1 = "10";
+        String s2 = "3";
+        int result = instance.sumStrings(s1, s2);
+        int expectedResult = 13;
+        try {
+            assertEquals("[testing countblock][ERRORE] 10 + 3 != "+result, expectedResult, result);
+        } catch (AssertionError e) {
+            System.out.println("\t\t\t[FAIL]");
+            failedTest++;
+            throw e;
+        }
+        System.out.println("\t\t\t[OK]");
+        successTest++;
+
+    }
 
 }
