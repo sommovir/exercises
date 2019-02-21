@@ -218,6 +218,7 @@ public class Block2_Easy1_Test {
         }
         System.out.println("\t[FAIL]");
         failedTest++;
+        assertFalse(true);
 
     }
     
@@ -242,6 +243,7 @@ public class Block2_Easy1_Test {
         } catch (Exception e) {
             System.out.println("\t[FAIL]");
             failedTest++;
+            assertFalse(true);
             return;
         }
         System.out.println("\t[OK]");
