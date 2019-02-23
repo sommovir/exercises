@@ -222,6 +222,18 @@ public class Block2_Easy1_Test {
 
     }
     
+    private boolean checkArrays(int a[], int b[]){
+        if(a.length!=b.length){
+            return false;
+        }
+        for (int i = 0; i < a.length; i++) {
+            
+            if(a[i] != b[i]){
+                return false;
+            }
+        }
+        return true;
+    }
     
     @Test
     public void testSumArrays2() {
@@ -235,7 +247,7 @@ public class Block2_Easy1_Test {
             int[] expectedResult = new int[]{5,5,5,5};
             
             
-            assertEquals("[EASY][SUM ARRAYS][2][ERRORE]", expectedResult, result);
+            assertTrue("[EASY][SUM ARRAYS][2][ERRORE]", checkArrays(result, expectedResult));
         } catch (AssertionError e) {
             System.out.println("\t[FAIL]");
             failedTest++;
