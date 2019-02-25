@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package esercizi.blocco1.easy;
+package it.esercizi.blocco1.easy;
 
 /**
  *
@@ -18,7 +18,7 @@ public class Easy1 {
      * @return 
      */
     public int somma(int a, int b){
-        return a+b;
+        return -1;
     }
     
     /**

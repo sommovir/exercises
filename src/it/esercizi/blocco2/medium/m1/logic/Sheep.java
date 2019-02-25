@@ -3,21 +3,21 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package esercizi.blocco2.medium.m1;
+package it.esercizi.blocco2.medium.m1.logic;
 
 /**
  *
  * @author Luca Coraci <luca.coraci@istc.cnr.it>
  */
-public class Pecora extends Animal{
+public class Sheep extends Animal{
     
     private String color;
 
-    public Pecora() {
+    public Sheep() {
     }
 
-    public Pecora(String color) {
-        super("Percora");
+    public Sheep(String color) {
+        super("Pecora");
         this.color = color;
     }
 

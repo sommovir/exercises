@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package esercizi.blocco2.medium.m1;
+package it.esercizi.blocco2.medium.m1.logic;
 
 /**
  *
