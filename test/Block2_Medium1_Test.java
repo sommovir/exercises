@@ -41,14 +41,14 @@ public class Block2_Medium1_Test {
 
     public Block2_Medium1_Test() {
     }
-    
-    private boolean checkArrays(int a[], int b[]){
-        if(a.length!=b.length){
+
+    private boolean checkArrays(int a[], int b[]) {
+        if (a.length != b.length) {
             return false;
         }
         for (int i = 0; i < a.length; i++) {
-            
-            if(a[i] != b[i]){
+
+            if (a[i] != b[i]) {
                 return false;
             }
         }
@@ -61,7 +61,7 @@ public class Block2_Medium1_Test {
             System.out.println("[JUNIT] looking for solution..");
             Class<?> solutionFor = AnnotationRunTimeProcessor.getInstance().getSolutionFor(Gabbia.class);
             Class<?> solution2For = AnnotationRunTimeProcessor.getInstance().getSolutionFor(Medium1.class);
-            if (solutionFor != null && solution2For !=null) {
+            if (solutionFor != null && solution2For != null) {
 
                 System.out.print("[JUNIT] instantiating solution..");
 
@@ -82,7 +82,7 @@ public class Block2_Medium1_Test {
                 } catch (InvocationTargetException ex) {
                     Logger.getLogger(Block2_Medium1_Test.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                if (gabbia != null && gabbia2 !=null && medium != null) {
+                if (gabbia != null && gabbia2 != null && medium != null) {
                     System.out.println("[OK] loaded.");
                 } else {
                     System.out.println("[FAILED] test aborted.");
@@ -112,10 +112,10 @@ public class Block2_Medium1_Test {
     @Before
     public void setUp() {
         totalTest++;
-        if(gabbia!=null){
+        if (gabbia != null) {
             gabbia.clear();
         }
-        if(gabbia2!=null){
+        if (gabbia2 != null) {
             gabbia2.clear();
         }
     }
@@ -200,7 +200,7 @@ public class Block2_Medium1_Test {
             try {
                 gabbia.addDog(null);
             } catch (NullPointerException ex) {
-                
+
                 int result = gabbia.getAnimaliInGabbia().size();
                 int expectedResult = 1;
                 assertEquals("[GABBIA][ADD-DOG][3][ERRORE] valore aspettato: " + expectedResult, expectedResult, result);
@@ -221,8 +221,7 @@ public class Block2_Medium1_Test {
         failedTest++;
 
     }
-    
-    
+
     @Test
     public void testAddDog4() {
         System.out.print("[GABBIA][ADD-DOG][4][controllo messaggio di errore - null input]..");
@@ -235,7 +234,7 @@ public class Block2_Medium1_Test {
             try {
                 gabbia.addDog(null);
             } catch (NullPointerException ex) {
-                
+
                 int expectedResult = 2;
                 String expectedMessage = "Input Nullo";
                 assertEquals("[GABBIA][ADD-DOG][4B][ERRORE] valore aspettato: " + expectedResult, expectedMessage, ex.getMessage());
@@ -256,7 +255,7 @@ public class Block2_Medium1_Test {
         failedTest++;
 
     }
-    
+
     @Test
     public void testAddPecora1() {
         System.out.print("[GABBIA][ADD-PECORA][1][inserimento tre pecore]..");
@@ -284,8 +283,7 @@ public class Block2_Medium1_Test {
         System.out.println("\t\t\t\t[OK]");
         successTest++;
     }
-    
-    
+
     @Test
     public void testAddPecora2() {
         System.out.print("[GABBIA][ADD-PECORA][2][inserimento n pecore con input errati]..");
@@ -298,7 +296,7 @@ public class Block2_Medium1_Test {
             Sheep sh5 = new Sheep("");
             Sheep sh6 = new Sheep("Nera");
             Sheep sh7 = new Sheep("Nera");
-            
+
             gabbia.addPecora(sh1);
             gabbia.addPecora(sh2);
             gabbia.addPecora(sh3);
@@ -306,7 +304,7 @@ public class Block2_Medium1_Test {
             gabbia.addPecora(sh5);
             gabbia.addPecora(sh6);
             gabbia.addPecora(sh7);
-            
+
             int result = gabbia.getAnimaliInGabbia().size();
             int expectedResult = 4;
             assertEquals("[GABBIA][ADD-PECORA][2][ERRORE] valore aspettato: " + expectedResult, expectedResult, result);
@@ -323,8 +321,7 @@ public class Block2_Medium1_Test {
         System.out.println("\t\t[OK]");
         successTest++;
     }
-    
-    
+
     @Test
     public void testAddDogPecore() {
         System.out.print("[GABBIA][ADD-DOG-PECORE][1][inserimento cani e pecore]..");
@@ -337,14 +334,14 @@ public class Block2_Medium1_Test {
             Sheep sh5 = new Sheep("");
             Sheep sh6 = new Sheep(null);
             Sheep sh7 = new Sheep("Nera");
-            
+
             Dog merlicchia = new Dog("barboncino", "Merlicchia", "Carlo");
             Dog carlino = new Dog("carlino", "Carlone", "Carlo");
             Dog alfonzo = new Dog("carlino", "Alfonzo", "Carlo");
             Dog sirio = new Dog("carlino", "Sirio", "Carlo");
             Dog teo = new Dog("carlino", "Teo", "Matteo");
             Dog simmy = new Dog("pastore tedesco", "Simmy", "Carlo");
-            
+
             gabbia.addPecora(sh1);
             gabbia.addDog(merlicchia);
             gabbia.addPecora(sh2);
@@ -358,7 +355,7 @@ public class Block2_Medium1_Test {
             gabbia.addPecora(sh6);
             gabbia.addPecora(sh7);
             gabbia.addDog(simmy);
-            
+
             int result = gabbia.getAnimaliInGabbia().size();
             int expectedResult = 5;
             assertEquals("[GABBIA][ADD-DOG-PECORE][1][ERRORE] valore aspettato: " + expectedResult, expectedResult, result);
@@ -375,7 +372,7 @@ public class Block2_Medium1_Test {
         System.out.println("\t\t\t[OK]");
         successTest++;
     }
-    
+
     @Test
     public void testClear() {
         System.out.print("[GABBIA][CLEAR][1][inserimenti vari e poi clear()]..");
@@ -388,14 +385,14 @@ public class Block2_Medium1_Test {
             Sheep sh5 = new Sheep("");
             Sheep sh6 = new Sheep(null);
             Sheep sh7 = new Sheep("Nera");
-            
+
             Dog merlicchia = new Dog("barboncino", "Merlicchia", "Carlo");
             Dog carlino = new Dog("carlino", "Carlone", "Carlo");
             Dog alfonzo = new Dog("carlino", "Alfonzo", "Carlo");
             Dog sirio = new Dog("carlino", "Sirio", "Carlo");
             Dog teo = new Dog("carlino", "Teo", "Matteo");
             Dog simmy = new Dog("pastore tedesco", "Simmy", "Carlo");
-            
+
             gabbia.addPecora(sh1);
             gabbia.addDog(merlicchia);
             gabbia.addPecora(sh2);
@@ -409,9 +406,9 @@ public class Block2_Medium1_Test {
             gabbia.addPecora(sh6);
             gabbia.addPecora(sh7);
             gabbia.addDog(simmy);
-            
+
             gabbia.clear();
-            
+
             int result = gabbia.getAnimaliInGabbia().size();
             int expectedResult = 0;
             assertEquals("[GABBIA][CLEAR][1][ERRORE] valore aspettato: " + expectedResult, expectedResult, result);
@@ -428,7 +425,7 @@ public class Block2_Medium1_Test {
         System.out.println("\t\t\t\t[OK]");
         successTest++;
     }
-    
+
     @Test
     public void testClear2() {
         System.out.print("[GABBIA][DEEP CLEAR][2][test pulizia profonda di strutture di supporto]..");
@@ -441,14 +438,14 @@ public class Block2_Medium1_Test {
             Sheep sh5 = new Sheep("");
             Sheep sh6 = new Sheep(null);
             Sheep sh7 = new Sheep("Nera");
-            
+
             Dog merlicchia = new Dog("barboncino", "Merlicchia", "Carlo");
             Dog carlino = new Dog("carlino", "Carlone", "Carlo");
             Dog alfonzo = new Dog("carlino", "Alfonzo", "Carlo");
             Dog sirio = new Dog("carlino", "Sirio", "Carlo");
             Dog teo = new Dog("carlino", "Teo", "Matteo");
             Dog simmy = new Dog("pastore tedesco", "Simmy", "Carlo");
-            
+
             gabbia.addDog(alfonzo);
             gabbia.addDog(sirio);
             gabbia.addPecora(sh5);
@@ -460,15 +457,15 @@ public class Block2_Medium1_Test {
             gabbia.addPecora(sh4);
             gabbia.addDog(carlino);
             gabbia.addPecora(sh3);
-            
+
             gabbia.addPecora(sh7);
             gabbia.addDog(simmy);
-            
+
             gabbia.clear();
-            
+
             gabbia.addDog(alfonzo);
             gabbia.addDog(sirio);
-            
+
             int result = gabbia.getAnimaliInGabbia().size();
             int expectedResult = 1;
             assertEquals("[GABBIA][DEEP CLEAR][1][ERRORE] valore aspettato: " + expectedResult, expectedResult, result);
@@ -485,8 +482,7 @@ public class Block2_Medium1_Test {
         System.out.println("\t[OK]");
         successTest++;
     }
-    
-    
+
     @Test
     public void testClearDog() {
         System.out.print("[GABBIA][REMOVE-ALL-DOG][1][insrimento misto e cancellazione cani]..");
@@ -499,14 +495,14 @@ public class Block2_Medium1_Test {
             Sheep sh5 = new Sheep("Nera");
             Sheep sh6 = new Sheep("Verde");
             Sheep sh7 = new Sheep("Nera");
-            
+
             Dog merlicchia = new Dog("barboncino", "Merlicchia", "Michela");
             Dog carlino = new Dog("carlino", "Carlone", "Carlo");
             Dog alfonzo = new Dog("carlino", "Alfonzo", "Katia");
             Dog sirio = new Dog("carlino", "Sirio", "Carlo");
             Dog teo = new Dog("carlino", "Teo", "Matteo");
             Dog simmy = new Dog("pastore tedesco", "Simmy", "Carlo");
-            
+
             gabbia.addDog(alfonzo);
             gabbia.addDog(sirio);
             gabbia.addPecora(sh5);
@@ -518,13 +514,12 @@ public class Block2_Medium1_Test {
             gabbia.addPecora(sh4);
             gabbia.addDog(carlino);
             gabbia.addPecora(sh3);
-            
+
             gabbia.addPecora(sh7);
             gabbia.addDog(simmy);
-            
+
             gabbia.removeAllDog();
-            
-            
+
             int result = gabbia.getAnimaliInGabbia().size();
             int expectedResult = 6;
             assertEquals("[GABBIA][REMOVE-ALL-DOG][1][ERRORE] valore aspettato: " + expectedResult, expectedResult, result);
@@ -541,8 +536,7 @@ public class Block2_Medium1_Test {
         System.out.println("\t\t[OK]");
         successTest++;
     }
-    
-    
+
     @Test
     public void testCountDogs() {
         System.out.print("[GABBIA][COUNT-DOG][1][inserimento misto e check]..");
@@ -555,13 +549,12 @@ public class Block2_Medium1_Test {
             Sheep sh5 = new Sheep("");
             Sheep sh6 = new Sheep("");
             Sheep sh7 = new Sheep("Nera");
-            
 
             Dog alfonzo = new Dog("carlino", "Alfonzo", "Katia");
             Dog sirio = new Dog("carlino", "Sirio", "Carlo");
             Dog teo = new Dog("carlino", "Teo", "Matteo");
             Dog simmy = new Dog("pastore tedesco", "Simmy", "Carlo");
-            
+
             gabbia.addDog(alfonzo);
             gabbia.addDog(sirio);
             gabbia.addPecora(sh5);
@@ -571,11 +564,10 @@ public class Block2_Medium1_Test {
             gabbia.addPecora(sh2);
             gabbia.addPecora(sh4);
             gabbia.addPecora(sh3);
-            
+
             gabbia.addPecora(sh7);
             gabbia.addDog(simmy);
-            
-            
+
             int result = gabbia.countDogs();
             int expectedResult = 3;
             assertEquals("[GABBIA][COUNT-DOG][1][ERRORE] valore aspettato: " + expectedResult, expectedResult, result);
@@ -592,7 +584,7 @@ public class Block2_Medium1_Test {
         System.out.println("\t\t\t\t[OK]");
         successTest++;
     }
-    
+
     @Test
     public void testCountDogs2() {
         System.out.print("[GABBIA][COUNT-DOG][2][inserimento misto,rimozione,inserimento e check]..");
@@ -605,13 +597,12 @@ public class Block2_Medium1_Test {
             Sheep sh5 = new Sheep("");
             Sheep sh6 = new Sheep("");
             Sheep sh7 = new Sheep("Nera");
-            
 
             Dog alfonzo = new Dog("carlino", "Alfonzo", "Katia");
             Dog sirio = new Dog("carlino", "Sirio", "Carlo");
             Dog teo = new Dog("carlino", "Teo", "Matteo");
             Dog simmy = new Dog("pastore tedesco", "Simmy", "Carlo");
-            
+
             gabbia.addDog(alfonzo);
             gabbia.addDog(sirio);
             gabbia.addPecora(sh5);
@@ -621,14 +612,14 @@ public class Block2_Medium1_Test {
             gabbia.addPecora(sh2);
             gabbia.addPecora(sh4);
             gabbia.addPecora(sh3);
-            
+
             gabbia.addPecora(sh7);
             gabbia.addDog(simmy);
-            
+
             gabbia.removeAllDog();
-            gabbia.addDog(new Dog("babbeo","bassotto","Matteo"));
-            gabbia.addDog(new Dog("babbeo2","bassotto","Alfonso"));
-            
+            gabbia.addDog(new Dog("babbeo", "bassotto", "Matteo"));
+            gabbia.addDog(new Dog("babbeo2", "bassotto", "Alfonso"));
+
             int result = gabbia.countDogs();
             int expectedResult = 2;
             assertEquals("[GABBIA][COUNT-DOG][2][ERRORE] valore aspettato: " + expectedResult, expectedResult, result);
@@ -645,8 +636,7 @@ public class Block2_Medium1_Test {
         System.out.println("\t[OK]");
         successTest++;
     }
-    
-    
+
     @Test
     public void testFindShipByColor() {
         System.out.print("[GABBIA][FIND-SHEEPS][1][multi test: colori presenti/assenti]..");
@@ -659,13 +649,12 @@ public class Block2_Medium1_Test {
             Sheep sh5 = new Sheep("");
             Sheep sh6 = new Sheep("Nero");
             Sheep sh7 = new Sheep("Nero");
-            
 
             Dog alfonzo = new Dog("carlino", "Alfonzo", "Katia");
             Dog sirio = new Dog("carlino", "Sirio", "Matteo");
             Dog teo = new Dog("carlino", "Teo", "Matteo");
             Dog simmy = new Dog("pastore tedesco", "Simmy", "Carlo");
-            
+
             gabbia.addDog(alfonzo);
             gabbia.addDog(sirio);
             gabbia.addPecora(sh5);
@@ -675,19 +664,18 @@ public class Block2_Medium1_Test {
             gabbia.addPecora(sh2);
             gabbia.addPecora(sh4);
             gabbia.addPecora(sh3);
-            
+
             gabbia.addPecora(sh7);
             gabbia.addDog(simmy);
-            
-            
+
             int grigie = gabbia.findSheepsByColor("Grigio").size();
             int bianche = gabbia.findSheepsByColor("Bianco").size();
             int nere = gabbia.findSheepsByColor("Nero").size();
             int blu = gabbia.findSheepsByColor("Blu").size();
-            
-            int []results = new int[]{grigie,bianche,nere,blu}; 
-            int []expectedResults = new int[]{1,1,3,0}; 
-            
+
+            int[] results = new int[]{grigie, bianche, nere, blu};
+            int[] expectedResults = new int[]{1, 1, 3, 0};
+
             assertTrue("[GABBIA][FIND-SHEEPS][1][ERRORE] valore aspettato: 1 grigio, 1 bianco, 3 neri, 0 blu", checkArrays(results, expectedResults));
         } catch (AssertionError e) {
             System.out.println("\t\t\t[FAIL]");
@@ -702,7 +690,7 @@ public class Block2_Medium1_Test {
         System.out.println("\t\t\t[OK]");
         successTest++;
     }
-    
+
     @Test
     public void testFindShipByColor2() {
         System.out.print("[GABBIA][FIND-SHEEPS][2][input test: color null]..");
@@ -715,13 +703,12 @@ public class Block2_Medium1_Test {
             Sheep sh5 = new Sheep("");
             Sheep sh6 = new Sheep("Nero");
             Sheep sh7 = new Sheep("Nero");
-            
 
             Dog alfonzo = new Dog("carlino", "Alfonzo", "Katia");
             Dog sirio = new Dog("carlino", "Sirio", "Matteo");
             Dog teo = new Dog("carlino", "Teo", "Matteo");
             Dog simmy = new Dog("pastore tedesco", "Simmy", "Carlo");
-            
+
             gabbia.addDog(alfonzo);
             gabbia.addDog(sirio);
             gabbia.addPecora(sh5);
@@ -731,13 +718,12 @@ public class Block2_Medium1_Test {
             gabbia.addPecora(sh2);
             gabbia.addPecora(sh4);
             gabbia.addPecora(sh3);
-            
+
             gabbia.addPecora(sh7);
             gabbia.addDog(simmy);
-           
-            
+
             List<Sheep> l1 = gabbia.findSheepsByColor(null);
-            
+
             assertNull("[GABBIA][FIND-SHEEPS][1][ERRORE] valore aspettato - null - per input nullo", l1);
         } catch (AssertionError e) {
             System.out.println("\t\t\t\t[FAIL]");
@@ -752,8 +738,7 @@ public class Block2_Medium1_Test {
         System.out.println("\t\t\t\t[OK]");
         successTest++;
     }
-    
-    
+
     @Test
     public void testFindShipByColor3() {
         System.out.print("[GABBIA][FIND-SHEEPS][3][input test: color empty]..");
@@ -766,13 +751,12 @@ public class Block2_Medium1_Test {
             Sheep sh5 = new Sheep("");
             Sheep sh6 = new Sheep("Nero");
             Sheep sh7 = new Sheep("Nero");
-            
 
             Dog alfonzo = new Dog("carlino", "Alfonzo", "Katia");
             Dog sirio = new Dog("carlino", "Sirio", "Matteo");
             Dog teo = new Dog("carlino", "Teo", "Matteo");
             Dog simmy = new Dog("pastore tedesco", "Simmy", "Carlo");
-            
+
             gabbia.addDog(alfonzo);
             gabbia.addDog(sirio);
             gabbia.addPecora(sh5);
@@ -782,13 +766,12 @@ public class Block2_Medium1_Test {
             gabbia.addPecora(sh2);
             gabbia.addPecora(sh4);
             gabbia.addPecora(sh3);
-            
+
             gabbia.addPecora(sh7);
             gabbia.addDog(simmy);
-           
-            
+
             List<Sheep> l1 = gabbia.findSheepsByColor("");
-            
+
             assertNull("[GABBIA][FIND-SHEEPS][1][ERRORE] valore aspettato - null - per input stringa vuota", l1);
         } catch (AssertionError e) {
             System.out.println("\t\t\t\t[FAIL]");
@@ -803,8 +786,7 @@ public class Block2_Medium1_Test {
         System.out.println("\t\t\t\t[OK]");
         successTest++;
     }
-    
-    
+
     @Test
     public void testEquals1() {
         System.out.print("[GABBIA][EQUALS][1][input test: null input]..");
@@ -817,13 +799,12 @@ public class Block2_Medium1_Test {
             Sheep sh5 = new Sheep("");
             Sheep sh6 = new Sheep("Nero");
             Sheep sh7 = new Sheep("Nero");
-            
 
             Dog alfonzo = new Dog("carlino", "Alfonzo", "Katia");
             Dog sirio = new Dog("carlino", "Sirio", "Matteo");
             Dog teo = new Dog("carlino", "Teo", "Matteo");
             Dog simmy = new Dog("pastore tedesco", "Simmy", "Carlo");
-            
+
             gabbia.addDog(alfonzo);
             gabbia.addDog(sirio);
             gabbia.addPecora(sh5);
@@ -833,13 +814,12 @@ public class Block2_Medium1_Test {
             gabbia.addPecora(sh2);
             gabbia.addPecora(sh4);
             gabbia.addPecora(sh3);
-            
+
             gabbia.addPecora(sh7);
             gabbia.addDog(simmy);
-           
-            
+
             boolean result = gabbia.equals(null);
-            
+
             assertFalse("[GABBIA][EQUALS][1][ERRORE] valore aspettato - null - per input stringa vuota", result);
         } catch (AssertionError e) {
             System.out.println("\t\t\t\t\t[FAIL]");
@@ -854,7 +834,7 @@ public class Block2_Medium1_Test {
         System.out.println("\t\t\t\t\t[OK]");
         successTest++;
     }
-    
+
     @Test
     public void testEquals2() {
         System.out.print("[GABBIA][EQUALS][2][confronto su tipi diversi]..");
@@ -867,13 +847,12 @@ public class Block2_Medium1_Test {
             Sheep sh5 = new Sheep("");
             Sheep sh6 = new Sheep("Nero");
             Sheep sh7 = new Sheep("Nero");
-            
 
             Dog alfonzo = new Dog("carlino", "Alfonzo", "Katia");
             Dog sirio = new Dog("carlino", "Sirio", "Matteo");
             Dog teo = new Dog("carlino", "Teo", "Matteo");
             Dog simmy = new Dog("pastore tedesco", "Simmy", "Carlo");
-            
+
             gabbia.addDog(alfonzo);
             gabbia.addDog(sirio);
             gabbia.addPecora(sh5);
@@ -883,13 +862,12 @@ public class Block2_Medium1_Test {
             gabbia.addPecora(sh2);
             gabbia.addPecora(sh4);
             gabbia.addPecora(sh3);
-            
+
             gabbia.addPecora(sh7);
             gabbia.addDog(simmy);
-           
-            
+
             boolean result = gabbia.equals(new Double(2.3d));
-            
+
             assertFalse("[GABBIA][EQUALS][2][ERRORE] valore aspettato - null - per input stringa vuota", result);
         } catch (AssertionError e) {
             System.out.println("\t\t\t\t[FAIL]");
@@ -904,17 +882,15 @@ public class Block2_Medium1_Test {
         System.out.println("\t\t\t\t[OK]");
         successTest++;
     }
-    
-    
+
     @Test
     public void testEquals3() {
         System.out.print("[GABBIA][EQUALS][3][due gabbie vuote sono uguali]..");
 
         try {
-           
-            
+
             boolean result = gabbia.equals(gabbia2);
-            
+
             assertTrue("[GABBIA][EQUALS][3][ERRORE] dovrebbero essere uguali perché sono due gabbie vuote", result);
         } catch (AssertionError e) {
             System.out.println("\t\t\t\t[FAIL]");
@@ -929,7 +905,7 @@ public class Block2_Medium1_Test {
         System.out.println("\t\t\t\t[OK]");
         successTest++;
     }
-    
+
     @Test
     public void testEquals4() {
         System.out.print("[GABBIA][EQUALS][4][due gabbie diverse per dimensione]..");
@@ -942,13 +918,12 @@ public class Block2_Medium1_Test {
             Sheep sh5 = new Sheep("Verde");
             Sheep sh6 = new Sheep("Nero");
             Sheep sh7 = new Sheep("Nero");
-            
 
             Dog alfonzo = new Dog("carlino", "Alfonzo", "Katia");
             Dog sirio = new Dog("carlino", "Sirio", "Sara");
             Dog teo = new Dog("carlino", "Teo", "Matteo");
             Dog simmy = new Dog("pastore tedesco", "Simmy", "Carlo");
-            
+
             gabbia.addDog(alfonzo);
             gabbia.addDog(sirio);
             gabbia.addPecora(sh5);
@@ -958,14 +933,12 @@ public class Block2_Medium1_Test {
             gabbia2.addPecora(sh2);
             gabbia2.addPecora(sh4);
             gabbia2.addPecora(sh3);
-            
+
             gabbia2.addPecora(sh7);
             gabbia2.addDog(simmy);
-            
-           
-            
+
             boolean result = gabbia.equals(gabbia2);
-            
+
             assertFalse("[GABBIA][EQUALS][4][ERRORE] gabbie diverse anche solo per dimensione", result);
         } catch (AssertionError e) {
             System.out.println("\t\t\t[FAIL]");
@@ -980,8 +953,7 @@ public class Block2_Medium1_Test {
         System.out.println("\t\t\t[OK]");
         successTest++;
     }
-    
-    
+
     @Test
     public void testEquals5() {
         System.out.print("[GABBIA][EQUALS][5][due gabbie diverse per contenuti]..");
@@ -990,33 +962,30 @@ public class Block2_Medium1_Test {
             Sheep sh1 = new Sheep("Grigio");
             Sheep sh2 = new Sheep("Bianco");
             Sheep sh3 = new Sheep("Nero");
-            
+
             Sheep sh1b = new Sheep("Grigio");
             Sheep sh2b = new Sheep("Bianco");
             Sheep sh3b = new Sheep("Nero");
-            
 
             Dog alfonzo = new Dog("carlino", "Alfonzo", "Katia");
             Dog sirio = new Dog("carlino", "Sirio", "Sara");
             Dog alfonzo2 = new Dog("carlino", "Alfonzo", "Katia");
             Dog simmy = new Dog("carlino", "Simmy", "Sara");
-            
+
             gabbia.addPecora(sh1);
             gabbia.addPecora(sh2);
             gabbia.addPecora(sh3);
             gabbia.addDog(alfonzo);
             gabbia.addDog(sirio);
-            
-            
+
             gabbia2.addPecora(sh1b);
             gabbia2.addPecora(sh2b);
             gabbia2.addPecora(sh3b);
             gabbia2.addDog(alfonzo2);
             gabbia2.addDog(simmy);
-           
-            
+
             boolean result = gabbia.equals(gabbia2);
-            
+
             assertFalse("[GABBIA][EQUALS][5][ERRORE] gabbie diverse per un parametro di un cane", result);
         } catch (AssertionError e) {
             System.out.println("\t\t\t\t[FAIL]");
@@ -1031,8 +1000,7 @@ public class Block2_Medium1_Test {
         System.out.println("\t\t\t\t[OK]");
         successTest++;
     }
-    
-    
+
     @Test
     public void testEquals5B() {
         System.out.print("[GABBIA][EQUALS][5B][due gabbie diverse per contenuti]..");
@@ -1041,33 +1009,30 @@ public class Block2_Medium1_Test {
             Sheep sh1 = new Sheep("Bianco");
             Sheep sh2 = new Sheep("Bianco");
             Sheep sh3 = new Sheep("Nero");
-            
+
             Sheep sh1b = new Sheep("Grigio");
             Sheep sh2b = new Sheep("Bianco");
             Sheep sh3b = new Sheep("Nero");
-            
 
             Dog alfonzo = new Dog("carlino", "Alfonzo", "Katia");
             Dog sirio = new Dog("carlino", "Simmy", "Sara");
             Dog alfonzo2 = new Dog("carlino", "Alfonzo", "Katia");
             Dog simmy = new Dog("carlino", "Simmy", "Sara");
-            
+
             gabbia.addPecora(sh1);
             gabbia.addPecora(sh2);
             gabbia.addPecora(sh3);
             gabbia.addDog(alfonzo);
             gabbia.addDog(sirio);
-            
-            
+
             gabbia2.addPecora(sh1b);
             gabbia2.addPecora(sh2b);
             gabbia2.addPecora(sh3b);
             gabbia2.addDog(alfonzo2);
             gabbia2.addDog(simmy);
-           
-            
+
             boolean result = gabbia.equals(gabbia2);
-            
+
             assertFalse("[GABBIA][EQUALS][5B][ERRORE] gabbie diverse per la razza di una pecora", result);
         } catch (AssertionError e) {
             System.out.println("\t\t\t[FAIL]");
@@ -1082,8 +1047,7 @@ public class Block2_Medium1_Test {
         System.out.println("\t\t\t[OK]");
         successTest++;
     }
-    
-    
+
     @Test
     public void testEquals6() {
         System.out.print("[GABBIA][EQUALS][6][due gabbie uguali per contenuti]..");
@@ -1092,32 +1056,30 @@ public class Block2_Medium1_Test {
             Sheep sh1 = new Sheep("Grigio");
             Sheep sh2 = new Sheep("Bianco");
             Sheep sh3 = new Sheep("Nero");
-            
+
             Sheep sh1b = new Sheep("Grigio");
             Sheep sh2b = new Sheep("Bianco");
             Sheep sh3b = new Sheep("Nero");
-            
 
             Dog alfonzo = new Dog("carlino", "Alfonzo", "Katia");
             Dog sirio = new Dog("carlino", "Sirio", "Sara");
             Dog alfonzo2 = new Dog("carlino", "Alfonzo", "Katia");
             Dog simmy = new Dog("carlino", "Sirio", "Sara");
-            
+
             gabbia.addDog(sirio);
             gabbia.addPecora(sh3);
             gabbia.addPecora(sh1);
             gabbia.addPecora(sh2);
             gabbia.addDog(alfonzo);
-            
+
             gabbia2.addPecora(sh2b);
             gabbia2.addDog(simmy);
             gabbia2.addPecora(sh1b);
             gabbia2.addDog(alfonzo2);
             gabbia2.addPecora(sh3b);
-           
-            
+
             boolean result = gabbia.equals(gabbia2);
-            
+
             assertTrue("[GABBIA][EQUALS][6][ERRORE] gabbie diverse per un parametro di un cane", result);
         } catch (AssertionError e) {
             System.out.println("\t\t\t\t[FAIL]");
@@ -1132,7 +1094,7 @@ public class Block2_Medium1_Test {
         System.out.println("\t\t\t\t[OK]");
         successTest++;
     }
-    
+
     @Test
     public void testMedium() {
         System.out.print("[MEDIUM][MOST POPULATED][1][due gabbie, una vuota]..");
@@ -1140,19 +1102,182 @@ public class Block2_Medium1_Test {
         try {
             Sheep sh1 = new Sheep("Grigio");
             Sheep sh2 = new Sheep("Bianco");
-            
+
             Dog alfonzo = new Dog("carlino", "Alfonzo", "Katia");
             Dog sirio = new Dog("maremmano", "Sirio", "Gino");
-                       
+
             gabbia2.addPecora(sh1);
             gabbia2.addDog(alfonzo);
             gabbia2.addPecora(sh2);
             gabbia2.addDog(sirio);
-           
-            
+
             Gabbia result = medium.mostPopulated(gabbia, gabbia2);
-            
+
             assertTrue("[GABBIA][MEDIUM][1][ERRORE] la prima gabbia è vuota", result == gabbia2);
+        } catch (AssertionError e) {
+            System.out.println("\t\t\t\t[FAIL]");
+            failedTest++;
+            throw e;
+        } catch (Exception e) {
+            System.out.println("\t\t\t\t[FAIL]");
+            failedTest++;
+            assertTrue(false);
+            return;
+        }
+        System.out.println("\t\t\t\t[OK]");
+        successTest++;
+    }
+
+    @Test
+    public void testMedium2() {
+        System.out.print("[MEDIUM][MOST POPULATED][2][due gabbie diversamente riempite]..");
+
+        try {
+            Sheep sh1 = new Sheep("Grigio");
+            Sheep sh2 = new Sheep("Bianco");
+
+            Dog alfonzo = new Dog("carlino", "Alfonzo", "Katia");
+            Dog sirio = new Dog("maremmano", "Sirio", "Gino");
+            Dog sirio2 = new Dog("maremmano", "Sirio2", "Gino2");
+            Dog sirio3 = new Dog("maremmano", "Sirio3", "Gino3");
+            Dog sirio4 = new Dog("maremmano", "Sirio4", "Gino4");
+            Dog sirio5 = new Dog("maremmano", "Sirio5", "Gino5");
+
+            gabbia.addPecora(sh1);
+            gabbia.addDog(alfonzo);
+            gabbia.addPecora(sh2);
+            gabbia.addDog(sirio);
+            gabbia.addDog(sirio2);
+            gabbia.addDog(sirio3);
+            gabbia.addDog(sirio4);
+            gabbia.addDog(sirio5);
+
+            Sheep sh11 = new Sheep("Grigio");
+            Sheep sh22 = new Sheep("Bianco");
+            Sheep sh33 = new Sheep("Bianco");
+
+            Dog alfonzo2 = new Dog("carlino", "Alfonzo", "Katia");
+            Dog sirio23 = new Dog("maremmano", "Sirio", "Gino");
+
+            gabbia2.addPecora(sh11);
+            gabbia2.addPecora(sh22);
+            gabbia2.addPecora(sh33);
+            gabbia2.addDog(alfonzo2);
+            gabbia2.addDog(sirio23);
+
+            Gabbia result = medium.mostPopulated(gabbia, gabbia2);
+
+            assertTrue("[GABBIA][MEDIUM][2][ERRORE] gabbie popolate, la prima è più numerosa", result == gabbia);
+        } catch (AssertionError e) {
+            System.out.println("\t\t\t[FAIL]");
+            failedTest++;
+            throw e;
+        } catch (Exception e) {
+            System.out.println("\t\t\t[FAIL]");
+            failedTest++;
+            assertTrue(false);
+            return;
+        }
+        System.out.println("\t\t\t[OK]");
+        successTest++;
+    }
+
+    @Test
+    public void testMinimize1() {
+        System.out.print("[MEDIUM][MINIMIZE][1][gabbia vuota]..");
+
+        try {
+
+            medium.minimize(gabbia);
+            int result = gabbia.getAnimaliInGabbia().size();
+            int expectedResult = 0;
+
+            assertEquals("[GABBIA][MINIMIZE][1][ERRORE] gabbia vuota, non dovrebbe fare nulla", expectedResult, result);
+        } catch (AssertionError e) {
+            System.out.println("\t\t\t\t\t\t[FAIL]");
+            failedTest++;
+            throw e;
+        } catch (Exception e) {
+            System.out.println("\t\t\t\t\t\t[FAIL]");
+            failedTest++;
+            assertTrue(false);
+            return;
+        }
+        System.out.println("\t\t\t\t\t\t[OK]");
+        successTest++;
+    }
+    
+    @Test
+    public void testMinimize2() {
+        System.out.print("[MEDIUM][MINIMIZE][2][una gabbie in equilibrio]..");
+
+        try {
+            Sheep sh1 = new Sheep("Grigio");
+            Sheep sh2 = new Sheep("Bianco");
+
+            Dog alfonzo = new Dog("carlino", "Alfonzo", "Katia");
+            Dog sirio = new Dog("maremmano", "Sirio", "Gino");
+
+            gabbia.addPecora(sh1);
+            gabbia.addDog(alfonzo);
+            gabbia.addPecora(sh2);
+            gabbia.addDog(sirio);
+
+            medium.minimize(gabbia);
+            int resultSize = gabbia.getAnimaliInGabbia().size();
+            int resultCountDog = gabbia.countDogs();
+            int expectedSize = 4;
+            int expectedCountDog = 2;
+
+            assertEquals("[GABBIA][MINIMIZE][2][ERRORE] il numero animali è cambiato, ma la gabbia non necessitava di minimizzazione", expectedSize, resultSize);
+            assertEquals("[GABBIA][MINIMIZE][2][ERRORE] sono stati aggiunti o rimossi dei cani ma la gabbia non necessitava di minimizzazione", expectedCountDog, resultCountDog);
+        } catch (AssertionError e) {
+            System.out.println("\t\t\t\t[FAIL]");
+            failedTest++;
+            throw e;
+        } catch (Exception e) {
+            System.out.println("\t\t\t\t[FAIL]");
+            failedTest++;
+            assertTrue(false);
+            return;
+        }
+        System.out.println("\t\t\t\t[OK]");
+        successTest++;
+    }
+    
+    
+    @Test
+    public void testMinimize3() {
+        System.out.print("[MEDIUM][MINIMIZE][3][una gabbia con più pecore]..");
+
+        try {
+            Sheep sh1 = new Sheep("Grigio");
+            Sheep sh2 = new Sheep("Bianco");
+            Sheep sh3 = new Sheep("Bianco");
+            Sheep sh4 = new Sheep("Bianco");
+            Sheep sh5 = new Sheep("Bianco");
+
+            Dog alfonzo = new Dog("carlino", "Alfonzo", "Katia");
+            Dog sirio = new Dog("maremmano", "Sirio", "Gino");
+            Dog bubbu = new Dog("maremmano", "Bubby", "Mario");
+
+            gabbia.addPecora(sh1);
+            gabbia.addDog(alfonzo);
+            gabbia.addPecora(sh2);
+            gabbia.addPecora(sh3);
+            gabbia.addDog(bubbu);
+            gabbia.addDog(sirio);
+            gabbia.addPecora(sh4);
+            gabbia.addPecora(sh5);
+
+            medium.minimize(gabbia);
+            int resultSize = gabbia.getAnimaliInGabbia().size();
+            int resultCountDog = gabbia.countDogs();
+            int expectedSize = 6;
+            int expectedCountDog = 3;
+
+            assertEquals("[GABBIA][MINIMIZE][3][ERRORE] il numero animali non è corretto, sono stati rimossi troppi o pochi animali", expectedSize, resultSize);
+            assertEquals("[GABBIA][MINIMIZE][3][ERRORE] il numero dei cani non doveva variare perché sono meno delle pecore", expectedCountDog, resultCountDog);
         } catch (AssertionError e) {
             System.out.println("\t\t\t\t[FAIL]");
             failedTest++;
@@ -1168,47 +1293,116 @@ public class Block2_Medium1_Test {
     }
     
     @Test
-    public void testMedium2() {
-        System.out.print("[MEDIUM][MOST POPULATED][2][due gabbie diversamente riempite]..");
+    public void testMinimize4() {
+        System.out.print("[MEDIUM][MINIMIZE][4][una gabbia con più cani]..");
 
         try {
             Sheep sh1 = new Sheep("Grigio");
             Sheep sh2 = new Sheep("Bianco");
-            
+            Sheep sh3 = new Sheep("Bianco");
+            Sheep sh4 = new Sheep("Bianco");
+            Sheep sh5 = new Sheep("Bianco");
+
+            Dog alfonzo = new Dog("carlino", "Alfonzo", "Katia");
+            Dog sirio = new Dog("maremmano", "Sirio", "Gino");
+            Dog bubbu = new Dog("maremmano", "Bubby", "Mario");
+            Dog bubbu2 = new Dog("maremmano", "Fido", "Mario");
+            Dog bubbu3 = new Dog("maremmano", "Alfonso", "Carlo");
+            Dog bubbu4 = new Dog("maremmano", "Kevin", "Luca");
+            Dog bubbu5 = new Dog("maremmano", "Hotel", "Simona");
+            Dog bubbu6 = new Dog("maremmano", "Mastino", "Gina");
+
+            gabbia.addDog(bubbu2);
+            gabbia.addPecora(sh1);
+            gabbia.addDog(alfonzo);
+            gabbia.addPecora(sh2);
+            gabbia.addPecora(sh3);
+            gabbia.addDog(bubbu);
+            gabbia.addDog(bubbu3);
+            gabbia.addDog(bubbu4);
+            gabbia.addDog(sirio);
+            gabbia.addPecora(sh4);
+            gabbia.addPecora(sh5);
+            gabbia.addDog(bubbu5);
+            gabbia.addDog(bubbu6);
+
+            medium.minimize(gabbia);
+            int resultSize = gabbia.getAnimaliInGabbia().size();
+            int resultCountDog = gabbia.countDogs();
+            int expectedSize = 10;
+            int expectedCountDog = 5;
+
+            assertEquals("[GABBIA][MINIMIZE][4][ERRORE] il numero animali non è corretto, sono stati rimossi troppi o pochi animali", expectedSize, resultSize);
+            assertEquals("[GABBIA][MINIMIZE][4][ERRORE] il numero dei cani non doveva variare perché sono meno delle pecore", expectedCountDog, resultCountDog);
+        } catch (AssertionError e) {
+            System.out.println("\t\t\t\t[FAIL]");
+            failedTest++;
+            throw e;
+        } catch (Exception e) {
+            System.out.println("\t\t\t\t[FAIL]");
+            failedTest++;
+            assertTrue(false);
+            return;
+        }
+        System.out.println("\t\t\t\t[OK]");
+        successTest++;
+    }
+    
+    
+    
+    @Test
+    public void testMoveSheep1() {
+        System.out.print("[MEDIUM][MOVE SHEEP][1][la prima gabbia non ha pecore]..");
+
+        try {
+            Sheep sh1 = new Sheep("Grigio");
+            Sheep sh2 = new Sheep("Bianco");
+
             Dog alfonzo = new Dog("carlino", "Alfonzo", "Katia");
             Dog sirio = new Dog("maremmano", "Sirio", "Gino");
             Dog sirio2 = new Dog("maremmano", "Sirio2", "Gino2");
             Dog sirio3 = new Dog("maremmano", "Sirio3", "Gino3");
             Dog sirio4 = new Dog("maremmano", "Sirio4", "Gino4");
             Dog sirio5 = new Dog("maremmano", "Sirio5", "Gino5");
-                       
-            gabbia.addPecora(sh1);
+
+//            gabbia.addPecora(sh1);
             gabbia.addDog(alfonzo);
-            gabbia.addPecora(sh2);
+//            gabbia.addPecora(sh2);
             gabbia.addDog(sirio);
             gabbia.addDog(sirio2);
             gabbia.addDog(sirio3);
             gabbia.addDog(sirio4);
             gabbia.addDog(sirio5);
-            
-            
+
             Sheep sh11 = new Sheep("Grigio");
             Sheep sh22 = new Sheep("Bianco");
             Sheep sh33 = new Sheep("Bianco");
-            
+
             Dog alfonzo2 = new Dog("carlino", "Alfonzo", "Katia");
             Dog sirio23 = new Dog("maremmano", "Sirio", "Gino");
-            
+
             gabbia2.addPecora(sh11);
             gabbia2.addPecora(sh22);
             gabbia2.addPecora(sh33);
             gabbia2.addDog(alfonzo2);
             gabbia2.addDog(sirio23);
-           
+
+            medium.moveSheep(gabbia, gabbia2);
             
-            Gabbia result = medium.mostPopulated(gabbia, gabbia2);
+            int resultG1 = gabbia.getAnimaliInGabbia().size();
+            int resultG2 = gabbia2.getAnimaliInGabbia().size();
+            int dogCountG1 = gabbia.countDogs();
+            int dogCountG2 = gabbia2.countDogs();
             
-            assertTrue("[GABBIA][MEDIUM][2][ERRORE] gabbie popolate, la prima è più numerosa", result == gabbia);
+            int expectedResultG1 = 6;
+            int expectedResultG2 = 5;
+            int expectedDogCountG1 = 6;
+            int expectedDogCountG2 = 2;
+
+            assertEquals("[GABBIA][MOVE SHEEP][1][ERRORE] il numero degli animali della prima gabbia non deve variare", expectedResultG1, resultG1);
+            assertEquals("[GABBIA][MOVE SHEEP][1][ERRORE] il numero degli animali della seconda gabbia non deve variare", expectedResultG2, resultG2);
+            assertEquals("[GABBIA][MOVE SHEEP][1][ERRORE] il numero di cani della prima gabbia non deve variare", expectedDogCountG1, dogCountG1);
+            assertEquals("[GABBIA][MOVE SHEEP][1][ERRORE] il numero di cani della seconda gabbia non deve variare", expectedDogCountG2, dogCountG2);
         } catch (AssertionError e) {
             System.out.println("\t\t\t[FAIL]");
             failedTest++;
@@ -1223,5 +1417,71 @@ public class Block2_Medium1_Test {
         successTest++;
     }
     
-    
+    @Test
+    public void testMoveSheep2() {
+        System.out.print("[MEDIUM][MOVE SHEEP][2][la prima gabbia ha due pecore]..");
+
+        try {
+            Sheep sh1 = new Sheep("Grigio");
+            Sheep sh2 = new Sheep("Bianco");
+
+            Dog alfonzo = new Dog("carlino", "Alfonzo", "Katia");
+            Dog sirio = new Dog("maremmano", "Sirio", "Gino");
+            Dog sirio2 = new Dog("maremmano", "Sirio2", "Gino2");
+            Dog sirio3 = new Dog("maremmano", "Sirio3", "Gino3");
+            Dog sirio4 = new Dog("maremmano", "Sirio4", "Gino4");
+            Dog sirio5 = new Dog("maremmano", "Sirio5", "Gino5");
+
+            gabbia.addPecora(sh1);
+            gabbia.addDog(alfonzo);
+            gabbia.addPecora(sh2);
+            gabbia.addDog(sirio);
+            gabbia.addDog(sirio2);
+            gabbia.addDog(sirio3);
+            gabbia.addDog(sirio4);
+            gabbia.addDog(sirio5);
+
+            Sheep sh11 = new Sheep("Grigio");
+            Sheep sh22 = new Sheep("Bianco");
+            Sheep sh33 = new Sheep("Bianco");
+
+            Dog alfonzo2 = new Dog("carlino", "Alfonzo", "Katia");
+            Dog sirio23 = new Dog("maremmano", "Sirio", "Gino");
+
+            gabbia2.addPecora(sh11);
+            gabbia2.addPecora(sh22);
+            gabbia2.addPecora(sh33);
+            gabbia2.addDog(alfonzo2);
+            gabbia2.addDog(sirio23);
+
+            medium.moveSheep(gabbia, gabbia2);
+            
+            int resultG1 = gabbia.getAnimaliInGabbia().size();
+            int resultG2 = gabbia2.getAnimaliInGabbia().size();
+            int dogCountG1 = gabbia.countDogs();
+            int dogCountG2 = gabbia2.countDogs();
+            
+            int expectedResultG1 = 6;
+            int expectedResultG2 = 7;
+            int expectedDogCountG1 = 6;
+            int expectedDogCountG2 = 2;
+
+            assertEquals("[GABBIA][MOVE SHEEP][2a][ERRORE] il numero degli animali della prima gabbia non deve variare", expectedResultG1, resultG1);
+            assertEquals("[GABBIA][MOVE SHEEP][2b][ERRORE] il numero degli animali della seconda gabbia non deve variare", expectedResultG2, resultG2);
+            assertEquals("[GABBIA][MOVE SHEEP][2c][ERRORE] il numero di cani della prima gabbia non deve variare", expectedDogCountG1, dogCountG1);
+            assertEquals("[GABBIA][MOVE SHEEP][2d][ERRORE] il numero di cani della seconda gabbia non deve variare", expectedDogCountG2, dogCountG2);
+        } catch (AssertionError e) {
+            System.out.println("\t\t\t[FAIL]");
+            failedTest++;
+            throw e;
+        } catch (Exception e) {
+            System.out.println("\t\t\t[FAIL]");
+            failedTest++;
+            assertTrue(false);
+            return;
+        }
+        System.out.println("\t\t\t[OK]");
+        successTest++;
+    }
+
 }
