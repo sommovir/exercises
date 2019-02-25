@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 
-import esercizi.blocco2.easy.Easy1;
-import esercizi.blocco2.easy.Persona;
+import it.esercizi.blocco2.easy.Easy1;
+import it.esercizi.blocco2.easy.Persona;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
