@@ -1,5 +1,9 @@
 package it;
 
+import it.esercizi.blocco2.medium.m1.logic.Sheep;
+import it.soluzioni.lele.blocco2.medium.m1.GabbiaImpl;
+import it.soluzioni.lele.blocco2.medium.m1.GabbiaLele;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -12,7 +16,11 @@ package it;
  */
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Esercizi Main");
+        GabbiaImpl gabbiaImpl = new GabbiaImpl();
+        Sheep sh1 = new Sheep();
+        
+        gabbiaImpl.addPecora(sh1);
+
     }
     
 }

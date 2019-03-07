@@ -1440,7 +1440,7 @@ public class Block2_Medium1_Test {
             gabbia.addDog(sirio3);
             gabbia.addDog(sirio4);
             gabbia.addDog(sirio5);
-
+            
             Sheep sh11 = new Sheep("Grigio");
             Sheep sh22 = new Sheep("Bianco");
             Sheep sh33 = new Sheep("Bianco");
