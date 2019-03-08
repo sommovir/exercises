@@ -8,6 +8,7 @@ import it.ann.AnnotationRunTimeProcessor;
 import it.esercizi.blocco2.easy.Easy1;
 import it.esercizi.blocco2.medium.m1.Gabbia;
 import it.esercizi.blocco2.medium.m1.Medium1;
+import it.esercizi.blocco2.medium.m1.logic.Animal;
 import it.esercizi.blocco2.medium.m1.logic.Dog;
 import it.esercizi.blocco2.medium.m1.logic.Sheep;
 import java.io.IOException;
@@ -156,7 +157,7 @@ public class Block2_Medium1_Test {
 
     @Test
     public void testAddDog2() {
-        System.out.print("[GABBIA][ADD-DOG][2][inserimento 6 cani, di cui 3 aventi lo stesso padrone]..");
+        System.out.print("[GABBIA][ADD-DOG][2][inserimento 8 cani, di cui 4 aventi lo stesso padrone]..");
 
         try {
             Dog merlicchia = new Dog("barboncino", "Merlicchia", "Luca");
@@ -165,15 +166,19 @@ public class Block2_Medium1_Test {
             Dog sirio = new Dog("carlino", "Sirio", "Carlo");
             Dog teo = new Dog("carlino", "Teo", "Matteo");
             Dog simmy = new Dog("pastore tedesco", "Simmy", "Carlo");
+            Dog simmy2 = new Dog("pastore tedesco", "Simmy", new String("Luca"));
+            Dog simmy3 = new Dog("pastore tedesco", "Simmy", "Alfonsino");
             gabbia.addDog(merlicchia);
             gabbia.addDog(carlino);
             gabbia.addDog(alfonzo);
             gabbia.addDog(sirio);
             gabbia.addDog(teo);
             gabbia.addDog(simmy);
+            gabbia.addDog(simmy2);
+            gabbia.addDog(simmy3);
 
             int result = gabbia.getAnimaliInGabbia().size();
-            int expectedResult = 3;
+            int expectedResult = 4;
             assertEquals("[GABBIA][ADD-DOG][2][ERRORE] valore aspettato: " + expectedResult, expectedResult, result);
         } catch (AssertionError e) {
             System.out.println("\t[FAIL]");
