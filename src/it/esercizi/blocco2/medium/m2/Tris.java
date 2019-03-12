@@ -3,17 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package it.soluzioni.lele.blocco2.medium.m2;
+package it.esercizi.blocco2.medium.m2;
 
 /**
  *
  * @author Luca Coraci <luca.coraci@istc.cnr.it>
  */
-public abstract class Forza4 {
+public abstract class Tris {
     
-    private Sign[][] grid = new Sign[6][7];
+    private Sign[][] grid = new Sign[3][3];
 
-    public Forza4() {
+    public Tris() {
         init();
     }
     
@@ -28,16 +28,15 @@ public abstract class Forza4 {
     }
     
     /**
-     * Aggiunge un gettonce con segno 'sign' alla griglia indicando in quale colonna (col) verrà inserito. Il gettone quindi
-     * verrà impilato secondo le regole del gioco Forza4. Se un gettone viene inserito in una colonna già piena verrà lanciata IndexOutOfBoundsException
+     * Aggiunge un segno alla griglia indicando in quale riga (row) e in quale colonn (col). Il segno non può sovrascrivere un segno già esistente. 
+     * Inoltre se i parametri in input eccedono le dimensioni della matrice va ritornata una IndexOutOfBoundsException
      * @param sign
      * @param row
      * @param col 
      */
-    public abstract void insert(Sign sign, int col) throws IndexOutOfBoundsException;
+    public abstract void addSign(Sign sign, int row, int col) throws IndexOutOfBoundsException;
     
-    
-     /**
+    /**
      * ritorna null se la griglia è ancora incompleta, se invece è completa e nessuno a vinto ritorna Sign.EMPTY. Viceversa ritorna il segno del vincitore
      * @return 
      */
@@ -46,26 +45,20 @@ public abstract class Forza4 {
     
     /**
      * stampa la griglia come da esempio: 
-     * | | | | | | | |
-     * | | | | | | | |
-     * | | |X| | | | |
-     * |X| |O| | | | |
-     * |X|X|O| | |X| |
-     * |O|O|X|O| |X| |
+     * |X|O|O|
+     * | |X| |
+     * |O| |X|
      * Sign.X diventa 'X'    Sign.Y diventa 'Y'  e Sign.EMPTY diventa uno spazio vuoto. Inoltre vengono inserite delle barrette verticali per decorazione.
      */
     public abstract void printGrid();
     
     /**
-     * inverte i segni della riga passata come argomento. Non fa nulla se la riga eccede i bounds. 
-     * @param row 
+     * riporta allo stato iniziale la griglia
      */
-    public abstract void invertiRiga(int row);
+    public abstract void clear();
     
     
-    /**
-     * ritorna il numero delle colonne riempite fino in cima
-     */
-    public abstract int countOfFilledColumns();
+    
+    
     
 }

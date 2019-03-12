@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package it.soluzioni.lele.blocco2.medium.m2;
+package it.esercizi.blocco2.medium.m2;
 
 /**
  *
