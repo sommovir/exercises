@@ -41,7 +41,6 @@ public class AnnotationRunTimeProcessor {
         super();
     }
 
-
     public Iterable<Class<?>> getSolutionClasses() {
 
         Iterable<Class<?>> klasses = ClassIndex.getAnnotated(Solution.class);
@@ -60,13 +59,24 @@ public class AnnotationRunTimeProcessor {
         return false;
     }
 
+    private boolean isExtending(Class<?> clazz, String interfaceName) {
+        Class<?> superClazz = clazz.getSuperclass();
+//        System.out.println("superclazz = "+superClazz.toString());
+        String inter = superClazz.toString().replace("class ", "");
+        if (inter.equals(interfaceName)) {
+            return true;
+        }
+
+        return false;
+    }
+
     public Class<?> getSolutionFor(Class<?> mustImplement) throws IOException, URISyntaxException {
         Iterable<Class<?>> clazzes = getSolutionClasses();
         for (Class<?> clazze : clazzes) {
-            
+
             if (clazze.isAnnotationPresent(Solution.class)) {
-                if (isImplementing(clazze, mustImplement.getName())) {
-                    System.out.println("[ANN] checking class: " + clazze.getCanonicalName()+ "\t [SOLUTION FOUND]");
+                if (isImplementing(clazze, mustImplement.getName()) || isExtending(clazze, mustImplement.getName())) {
+                    System.out.println("[ANN] checking class: " + clazze.getCanonicalName() + "\t [SOLUTION FOUND]");
                     return clazze;
                 } else {
 //                    System.out.println("\t [NOT SOLUTION]");
