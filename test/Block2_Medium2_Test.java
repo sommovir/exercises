@@ -12,6 +12,7 @@ import it.esercizi.blocco2.medium.m1.logic.Animal;
 import it.esercizi.blocco2.medium.m1.logic.Dog;
 import it.esercizi.blocco2.medium.m1.logic.Sheep;
 import it.esercizi.blocco2.medium.m2.Forza4;
+import it.esercizi.blocco2.medium.m2.Sign;
 import it.esercizi.blocco2.medium.m2.Tris;
 import java.io.IOException;
 import java.lang.reflect.InvocationTargetException;
@@ -40,12 +41,12 @@ public class Block2_Medium2_Test {
     private static int failedTest = 0;
     private static Tris tris = null;
     private static Forza4 forza4 = null;
-
+    private Sign[][] matrixEmpty = new Sign[][]{{Sign.EMPTY,Sign.EMPTY,Sign.EMPTY},{Sign.EMPTY,Sign.EMPTY,Sign.EMPTY},{Sign.EMPTY,Sign.EMPTY,Sign.EMPTY}};
 
     public Block2_Medium2_Test() {
     }
 
-    private boolean checkArrays(int a[], int b[]) {
+    private boolean checkArrays(Sign a[], Sign b[]) {
         if (a.length != b.length) {
             return false;
         }
@@ -53,6 +54,20 @@ public class Block2_Medium2_Test {
 
             if (a[i] != b[i]) {
                 return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean checkMatrix(Sign a[][], Sign b[][]) {
+        if (a.length != b.length) {
+            return false;
+        }
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < b.length; j++) {
+                if (a[i][j] != b[i][j]) {
+                    return false;
+                }
             }
         }
         return true;
@@ -70,7 +85,7 @@ public class Block2_Medium2_Test {
 
                 try {
                     tris = (Tris) solutionFor.getConstructor().newInstance();
-                    forza4 = (Forza4) solutionFor.getConstructor().newInstance();
+                    forza4 = (Forza4) solution2For.getConstructor().newInstance();
                 } catch (NoSuchMethodException ex) {
                     Logger.getLogger(Block2_Medium1_Test.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (SecurityException ex) {
@@ -126,4 +141,25 @@ public class Block2_Medium2_Test {
     public void tearDown() {
     }
 
+    
+    @Test
+    public void testInit() {
+        System.out.print("[TRIS][INIT][1][test inizializzazione griglia]..");
+
+        try {            
+            boolean result = checkMatrix(tris.getGrid(),this.matrixEmpty);
+            boolean expectedResult = true;
+            assertEquals("[TRIS][INIT][1] valore aspettato: " + expectedResult, expectedResult, result);
+        } catch (AssertionError e) {
+            System.out.println("\t\t[FAIL]");
+            failedTest++;
+            throw e;
+        } catch (Exception e) {
+            System.out.println("\t\t[FAIL]");
+            failedTest++;
+            throw e;
+        }
+        System.out.println("\t\t[OK]");
+        successTest++;
+    }
 }
