@@ -151,6 +151,110 @@ public class Block2_Medium2_Test {
             boolean expectedResult = true;
             assertEquals("[TRIS][INIT][1] valore aspettato: " + expectedResult, expectedResult, result);
         } catch (AssertionError e) {
+            System.out.println("\t\t\t\t[FAIL]");
+            failedTest++;
+            throw e;
+        } catch (Exception e) {
+            System.out.println("\t\t\t\t[FAIL]");
+            failedTest++;
+            throw e;
+        }
+        System.out.println("\t\t\t\t[OK]");
+        successTest++;
+    }
+    
+    
+    @Test
+    public void testAddSign1() {
+        System.out.print("[TRIS][ADD SIGN][1][test inserimento X at 0,0]..");
+
+        try {            
+            tris.addSign(Sign.X, 0, 0);
+            Sign[][] matrix = new Sign[][]{{Sign.X,Sign.EMPTY,Sign.EMPTY},{Sign.EMPTY,Sign.EMPTY,Sign.EMPTY},{Sign.EMPTY,Sign.EMPTY,Sign.EMPTY}};
+            boolean result = checkMatrix(tris.getGrid(),matrix);
+            boolean expectedResult = true;
+            assertEquals("[TRIS][ADD SIGN][1] la griglia non è stata correttamente aggiornata ", expectedResult, result);
+        } catch (AssertionError e) {
+            System.out.println("\t\t\t\t[FAIL]");
+            failedTest++;
+            throw e;
+        } catch (Exception e) {
+            System.out.println("\t\t\t\t[FAIL]");
+            failedTest++;
+            throw e;
+        }
+        System.out.println("\t\t\t\t[OK]");
+        successTest++;
+    }
+    
+    @Test
+    public void testAddSign2() {
+        System.out.print("[TRIS][ADD SIGN][2][test inserimento X at 1,1]..");
+
+        try {            
+            tris.addSign(Sign.O, 1, 1);
+            Sign[][] matrix = new Sign[][]{{Sign.EMPTY,Sign.EMPTY,Sign.EMPTY},{Sign.EMPTY,Sign.O,Sign.EMPTY},{Sign.EMPTY,Sign.EMPTY,Sign.EMPTY}};
+            boolean result = checkMatrix(tris.getGrid(),matrix);
+            boolean expectedResult = true;
+            assertEquals("[TRIS][ADD SIGN][1] la griglia non è stata correttamente aggiornata ", expectedResult, result);
+        } catch (AssertionError e) {
+            System.out.println("\t\t\t\t[FAIL]");
+            failedTest++;
+            throw e;
+        } catch (Exception e) {
+            System.out.println("\t\t\t\t[FAIL]");
+            failedTest++;
+            throw e;
+        }
+        System.out.println("\t\t\t\t[OK]");
+        successTest++;
+    }
+    
+    @Test
+    public void testAddSign3() {
+        System.out.print("[TRIS][ADD SIGN][3][test inserimenti multipli, non sovrascriventi]..");
+
+        try {            
+            tris.addSign(Sign.O, 1, 1);
+            tris.addSign(Sign.X, 1, 0);
+            tris.addSign(Sign.O, 0, 2);
+            tris.addSign(Sign.X, 2, 0);
+            tris.addSign(Sign.O, 1, 2);
+            
+            Sign[][] matrix = new Sign[][]{{Sign.EMPTY,Sign.EMPTY,Sign.O},{Sign.X,Sign.O,Sign.O},{Sign.X,Sign.EMPTY,Sign.EMPTY}};
+            boolean result = checkMatrix(tris.getGrid(),matrix);
+            boolean expectedResult = true;
+            assertEquals("[TRIS][ADD SIGN][1] la griglia non è stata correttamente aggiornata ", expectedResult, result);
+        } catch (AssertionError e) {
+            System.out.println("\t\t[FAIL]");
+            failedTest++;
+            throw e;
+        } catch (Exception e) {
+            System.out.println("\t\t[FAIL]");
+            failedTest++;
+            throw e;
+        }
+        System.out.println("\t\t[OK]");
+        successTest++;
+    }
+    
+    
+    @Test
+    public void testAddSign4() {
+        System.out.print("[TRIS][ADD SIGN][3][test inserimenti multipli, con sovrascritture]..");
+
+        try {            
+            tris.addSign(Sign.O, 1, 1);
+            tris.addSign(Sign.X, 1, 1);
+            tris.addSign(Sign.O, 0, 2);
+            tris.addSign(Sign.X, 2, 0);
+            tris.addSign(Sign.O, 0, 2);
+            
+            Sign[][] matrix = new Sign[][]{{Sign.EMPTY,Sign.EMPTY,Sign.O},{Sign.EMPTY,Sign.O,Sign.EMPTY},{Sign.X,Sign.EMPTY,Sign.EMPTY}};
+            boolean result = checkMatrix(tris.getGrid(),matrix);
+            boolean expectedResult = true;
+            assertEquals("[TRIS][ADD SIGN][1] la griglia non è stata correttamente aggiornata ", expectedResult, result);
+        } catch (AssertionError e) {
             System.out.println("\t\t[FAIL]");
             failedTest++;
             throw e;
