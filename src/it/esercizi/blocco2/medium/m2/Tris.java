@@ -5,6 +5,8 @@
  */
 package it.esercizi.blocco2.medium.m2;
 
+import it.esercizi.blocco2.medium.m2.exceptions.OutOfGridException;
+
 /**
  *
  * @author Luca Coraci <luca.coraci@istc.cnr.it>
@@ -29,12 +31,13 @@ public abstract class Tris {
     
     /**
      * Aggiunge un segno alla griglia indicando in quale riga (row) e in quale colonn (col). Il segno non può sovrascrivere un segno già esistente. 
-     * Inoltre se i parametri in input eccedono le dimensioni della matrice va ritornata una IndexOutOfBoundsException
+     * Inoltre se i parametri in input eccedono le dimensioni della matrice va ritornata una OutOfGridException
      * @param sign
      * @param row
      * @param col 
+     * @throws it.esercizi.blocco2.medium.m2.exceptions.OutOfGridException 
      */
-    public abstract void addSign(Sign sign, int row, int col) throws IndexOutOfBoundsException;
+    public abstract void addSign(Sign sign, int row, int col) throws OutOfGridException;
     
     /**
      * ritorna null se la griglia è ancora incompleta, se invece è completa e nessuno a vinto ritorna Sign.EMPTY. Viceversa ritorna il segno del vincitore
